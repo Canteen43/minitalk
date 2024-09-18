@@ -12,7 +12,6 @@
 
 #include "../inc/minitalk.h"
 
-
 char g_char;
 
 int main (void)
