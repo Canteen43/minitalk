@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kweihman <kweihman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 11:03:12 by kweihman          #+#    #+#             */
-/*   Updated: 2024/09/17 11:03:12 by kweihman         ###   ########.fr       */
+/*   Created: 2024/05/15 18:35:49 by kweihman          #+#    #+#             */
+/*   Updated: 2024/05/15 18:39:03 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
-{
-	pid_t	pid_server;
+#include "libft.h"
 
-	if (argc != 3)
-		ERROR;
-	if (f_strtoi(argv[1], &pid_server) == -1)
-		ERROR;
-	while (*argv[2])
+/*Iterates the list ’lst’ and applies the function
+’f’ on the content of each node.*/
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst != NULL)
 	{
-		f_send_char(pid_server, *argv[2]);
-		argv[2]++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	f_send_char(pid_server, '\0');
-	return (0);
 }

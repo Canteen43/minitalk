@@ -10,7 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/minitalk.h"
+
 extern char g_char;
+static void	handler(int signum);
 
 /*Receives SIGUSR1 for 0 and SIGUSR2 for 1.*/
 void	f_receive_char(char *c)
@@ -31,7 +34,7 @@ void	f_receive_char(char *c)
 	return ;
 }
 
-void	handler(int signum)
+static void	handler(int signum)
 {
 	char bit;
 

@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kweihman <kweihman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 11:17:39 by kweihman          #+#    #+#             */
-/*   Updated: 2024/09/17 11:17:39 by kweihman         ###   ########.fr       */
+/*   Created: 2024/09/18 19:51:53 by kweihman          #+#    #+#             */
+/*   Updated: 2024/09/18 19:51:53 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char g_char;
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int main (void)
-{
-	pid_t pid_server;
-	char array[1000];
-	int	i;
+# include <stddef.h>	// NULL
+# include <signal.h>	// sigaction, sigemptyset, SIGUSR1, SIGUSR2, kill
+# include <unistd.h>	// getpid, usleep
 
-	pid_server = getpid();
-	printf("Server PID: %d\n", pid_server); //Work on this
-	while (1)
-	{
-		i = 0;
-		g_char = 1;
-		while (g_char != '\0')
-		{
-			f_receive_char();
-			array[i] = g_char;
-			i++;
-		}
-		printf("Received: %s|\n", array);
-	}
-	return (0);
-}
+void	f_receive_char(char *c);
+int		f_send_char(pid_t pid_target, char c);
+
+#endif // MINITALK_H
