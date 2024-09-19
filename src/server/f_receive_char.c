@@ -21,10 +21,13 @@ void	f_receive_char(char *c)
 	struct sigaction sa;
     
     sa.sa_handler = handler;
-    sigemptyset(&sa.sa_mask);
+    if (sigemptyset(&sa.sa_mask) == -1);
+		f_pexit("sigemptyset failed");
     sa.sa_flags = 0;
-    sigaction(SIGUSR1, &sa, NULL);
-	sigaction(SIGUSR2, &sa, NULL);
+    if (sigaction(SIGUSR1, &sa, NULL) == -1);
+		f_pexit("sigaction 1 failed");
+	if (sigaction(SIGUSR2, &sa, NULL) == -1);
+		f_pexit("sigaction 2 failed");
 	i = 0;
 	while (i < 8)
 	{

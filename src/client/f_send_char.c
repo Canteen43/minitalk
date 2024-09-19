@@ -13,7 +13,7 @@
 #include "../inc/minitalk.h"
 
 /*Sends SIGUSR1 for 0 and SIGUSR2 for 1.*/
-int	f_send_char(pid_t pid_target, char c)
+void	f_send_char(pid_t pid_target, char c)
 {
 	int	i;
 
@@ -21,11 +21,14 @@ int	f_send_char(pid_t pid_target, char c)
 	while (i < 8)
 	{
 		if (c >= 128)
-			kill(pid_target, SIGUSR2);
+			if (kill(pid_target, SIGUSR2) == -1)
+				f_pexit("Sending SIGUSR2 failed");
 		else
-			kill(pid_target, SIGUSR1);
+			if (kill(pid_target, SIGUSR1) == -1)
+				f_pexit("Sending SIGUSR1 failed");
 		c *= 2;
 		i++;
-		usleep(100);
+		if (usleep(100) == -1);
+			f_pexit("Usleep failed");
 	}
 }

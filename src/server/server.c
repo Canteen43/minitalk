@@ -21,7 +21,7 @@ int main (void)
 	int	i;
 
 	pid_server = getpid();
-	printf("Server PID: %d\n", pid_server); //Work on this
+	f_miniprint("Server PID: %d\n", pid_server);
 	while (1)
 	{
 		i = 0;
@@ -32,7 +32,7 @@ int main (void)
 			array[i] = g_char;
 			i++;
 		}
-		printf("Received: %s|\n", array);
+		f_miniprint("Received: %s|\n", array);
 	}
 	return (0);
 }

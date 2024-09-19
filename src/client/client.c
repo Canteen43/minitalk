@@ -17,9 +17,9 @@ int	main(int argc, char **argv)
 	pid_t	pid_server;
 
 	if (argc != 3)
-		ERROR;
+		f_pexit("Wrong arguments. Enter \"./client [server_pid] [message]\"");
 	if (f_strtoi(argv[1], &pid_server) == -1)
-		ERROR;
+		f_pexit("Invalid PID");
 	while (*argv[2])
 	{
 		f_send_char(pid_server, *argv[2]);

@@ -19,5 +19,7 @@
 
 void	f_receive_char(char *c);
 int		f_send_char(pid_t pid_target, char c);
+void	f_pexit(char *str);
+void	f_miniprint(char *str, ...);
 
 #endif // MINITALK_H
