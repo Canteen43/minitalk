@@ -24,11 +24,11 @@ LIB1 = $(LIB_DIR1)libft.a
 LIB2 = $(LIB_DIR2)flib.a
 
 # Source files for server and client
-CLIENT_SRC_FILES += client/client.c
-CLIENT_SRC_FILES += client/f_send_char.c
+CLIENT_SRC_FILES += client.c
+CLIENT_SRC_FILES += f_send_char.c
 
-SERVER_SRC_FILES += server/server.c
-SERVER_SRC_FILES += server/f_receive_char.c
+SERVER_SRC_FILES += server.c
+SERVER_SRC_FILES += f_receive_char.c
 
 # Object files for server and client
 CLIENT_OBJ_FILES = $(CLIENT_SRC_FILES:%.c=$(OBJ_DIR)%.o)
@@ -50,10 +50,10 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(SERVER): $(SERVER_OBJ_FILES) $(LIB1) $(LIB2)
-	$(CC) $(SERVER_OBJ_FILES) -o $(SERVER) $(LIB1) $(LIB2)
+	$(CC) $(SERVER_OBJ_FILES) -o $(SERVER) $(LIB2) $(LIB1)
 
 $(CLIENT): $(CLIENT_OBJ_FILES) $(LIB1) $(LIB2)
-	$(CC) $(CLIENT_OBJ_FILES) -o $(CLIENT) $(LIB1) $(LIB2)
+	$(CC) $(CLIENT_OBJ_FILES) -o $(CLIENT) $(LIB2) $(LIB1)
 
 clean:
 	rm -rf $(OBJ_DIR)
