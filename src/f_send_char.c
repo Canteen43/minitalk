@@ -31,6 +31,4 @@ void	f_send_char(pid_t pid_target, char c)
 		if (usleep(50) == -1)
 			f_pexit("Usleep failed");
 	}
-	// if (usleep(250) == -1)
-	// 	f_pexit("Usleep failed");
 }

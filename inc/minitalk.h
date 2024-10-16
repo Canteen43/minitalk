@@ -13,14 +13,16 @@
 #ifndef MINITALK_H
 # define MINITALK_H
 
-# include <stddef.h>	// NULL
-# include <signal.h>	// sigaction, sigemptyset, SIGUSR1, SIGUSR2, kill
-# include <unistd.h>	// getpid, usleep
-# include <stdlib.h>	// malloc, free
+# include <stddef.h>		// NULL
+# include <signal.h>		// sigaction, sigemptyset, SIGUSR1, SIGUSR2, kill
+# include <unistd.h>		// getpid, usleep
+# include <stdlib.h>		// malloc, free
+# include <sys/types.h>		// pid_t
+# include <sys/siginfo.h>	// siginfo_t
 
 typedef struct s_arraylist_char
 {
-	char*	head;
+	char	*head;
 	size_t	cap;
 	size_t	len;
 }	t_alc;
@@ -29,7 +31,7 @@ typedef struct s_arraylist_char
 #  define ARR_CAP 1000
 # endif
 
-void	f_receive_char();
+void	f_receive_char(void);
 void	f_send_char(pid_t pid_target, char c);
 void	f_pexit(char *str);
 void	f_miniprint(char *str, ...);

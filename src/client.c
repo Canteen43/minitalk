@@ -12,7 +12,7 @@
 
 #include "../inc/minitalk.h"
 
-int f_strtoi(char *str, int *num);
+int	f_strtoi(char *str, int *num);
 
 /*Main function for client.*/
 int	main(int argc, char **argv)

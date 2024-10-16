@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kweihman <kweihman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:17:39 by kweihman          #+#    #+#             */
-/*   Updated: 2024/09/17 11:17:39 by kweihman         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:27:10 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
 
-char g_char;
-pid_t g_pid_client;
-
+char	g_char;
+pid_t	g_pid_client;
 
 /*Main function for server.*/
-int main (void)
+int	main(void)
 {
-	pid_t pid_server;
-	t_alc arr;
+	pid_t	pid_server;
+	t_alc	arr;
 
 	pid_server = getpid();
 	f_miniprint("Server PID: %d\n", pid_server);
@@ -46,4 +45,3 @@ int main (void)
 	}
 	return (0);
 }
-

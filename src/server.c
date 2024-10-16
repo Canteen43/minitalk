@@ -12,13 +12,13 @@
 
 #include "../inc/minitalk.h"
 
-char g_char;
+char	g_char;
 
 /*Main function for server.*/
-int main (void)
+int	main(void)
 {
-	pid_t pid_server;
-	t_alc arr;
+	pid_t	pid_server;
+	t_alc	arr;
 
 	pid_server = getpid();
 	f_miniprint("Server PID: %d\n", pid_server);
@@ -41,4 +41,3 @@ int main (void)
 	}
 	return (0);
 }
-

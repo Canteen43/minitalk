@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   f_receive_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kweihman <kweihman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:44:25 by kweihman          #+#    #+#             */
-/*   Updated: 2024/09/17 11:44:25 by kweihman         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:25:45 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
 
-extern char g_char;
-extern pid_t g_pid_client;
-static void	advanced_handler(int signum, siginfo_t *info, void *context);
+extern char		g_char;
+extern pid_t	g_pid_client;
+static void		advanced_handler(int signum, siginfo_t *info, void *context);
 
 /*Receives SIGUSR1 for 0 and SIGUSR2 for 1.*/
-void	f_receive_char()
+void	f_receive_char(void)
 {
-	struct	sigaction sa;
-	int		i;
-    
-    sa.sa_sigaction = advanced_handler;
-    if (sigemptyset(&sa.sa_mask) == -1)
+	struct sigaction	sa;
+	int					i;
+
+	sa.sa_sigaction = advanced_handler;
+	if (sigemptyset(&sa.sa_mask) == -1)
 		f_pexit("sigemptyset failed");
-    sa.sa_flags = SA_SIGINFO;
-    if (sigaction(SIGUSR1, &sa, NULL) == -1)
+	sa.sa_flags = SA_SIGINFO;
+	if (sigaction(SIGUSR1, &sa, NULL) == -1)
 		f_pexit("sigaction 1 failed");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
 		f_pexit("sigaction 2 failed");
@@ -41,7 +41,7 @@ void	f_receive_char()
 
 static void	advanced_handler(int signum, siginfo_t *info, void *context)
 {
-	char bit;
+	char	bit;
 
 	if (signum == SIGUSR1)
 		bit = 0;

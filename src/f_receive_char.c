@@ -12,20 +12,20 @@
 
 #include "../inc/minitalk.h"
 
-extern char g_char;
+extern char	g_char;
 static void	handler(int signum);
 
 /*Receives SIGUSR1 for 0 and SIGUSR2 for 1.*/
-void	f_receive_char()
+void	f_receive_char(void)
 {
-	struct	sigaction sa;
-	int		i;
-    
-    sa.sa_handler = handler;
-    if (sigemptyset(&sa.sa_mask) == -1)
+	struct sigaction	sa;
+	int					i;
+
+	sa.sa_handler = handler;
+	if (sigemptyset(&sa.sa_mask) == -1)
 		f_pexit("sigemptyset failed");
-    sa.sa_flags = 0;
-    if (sigaction(SIGUSR1, &sa, NULL) == -1)
+	sa.sa_flags = 0;
+	if (sigaction(SIGUSR1, &sa, NULL) == -1)
 		f_pexit("sigaction 1 failed");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
 		f_pexit("sigaction 2 failed");
@@ -40,7 +40,7 @@ void	f_receive_char()
 
 static void	handler(int signum)
 {
-	char bit;
+	char	bit;
 
 	if (signum == SIGUSR1)
 		bit = 0;
