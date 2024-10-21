@@ -1,5 +1,5 @@
 # The following files are ignored
-/obj
+/obj*
 server
 client
 server_bonus
