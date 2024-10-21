@@ -32,10 +32,10 @@ typedef struct s_arraylist_char
 
 void	f_receive_char(void);
 void	f_send_char(pid_t pid_target, char c);
-void	f_pexit(char *str);
-void	f_miniprint(char *str, ...);
-int		f_alc_add(t_alc *arr, char c);
+void	fl_pexit(char *str);
+void	fl_miniprint(char *str, ...);
+int		fl_alc_add(t_alc *arr, char c);
 int		f_alc_double(t_alc *arr);
-int		f_alc_init(t_alc *arr, size_t cap);
+int		fl_alc_init(t_alc *arr, size_t cap);
 
 #endif // MINITALK_H

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_send_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kweihman <kweihman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:07:36 by kweihman          #+#    #+#             */
-/*   Updated: 2024/09/17 11:07:36 by kweihman         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:49:19 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	f_send_char(pid_t pid_target, char c)
 	{
 		if ((unsigned char) c >= 128)
 			if (kill(pid_target, SIGUSR2) == -1)
-				f_pexit("Sending SIGUSR2 failed");
+				fl_pexit("Sending SIGUSR2 failed");
 		if ((unsigned char) c < 128)
 			if (kill(pid_target, SIGUSR1) == -1)
-				f_pexit("Sending SIGUSR1 failed");
+				fl_pexit("Sending SIGUSR1 failed");
 		c *= 2;
 		i++;
 		if (usleep(50) == -1)
-			f_pexit("Usleep failed");
+			fl_pexit("Usleep failed");
 	}
 }

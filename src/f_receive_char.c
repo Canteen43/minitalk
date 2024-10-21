@@ -23,12 +23,12 @@ void	f_receive_char(void)
 
 	sa.sa_handler = handler;
 	if (sigemptyset(&sa.sa_mask) == -1)
-		f_pexit("sigemptyset failed");
+		fl_pexit("sigemptyset failed");
 	sa.sa_flags = 0;
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		f_pexit("sigaction 1 failed");
+		fl_pexit("sigaction 1 failed");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		f_pexit("sigaction 2 failed");
+		fl_pexit("sigaction 2 failed");
 	i = 0;
 	while (i < 8)
 	{

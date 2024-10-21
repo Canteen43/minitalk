@@ -21,22 +21,22 @@ int	main(void)
 	t_alc	arr;
 
 	pid_server = getpid();
-	f_miniprint("Server PID: %d\n", pid_server);
+	fl_miniprint("Server PID: %d\n", pid_server);
 	while (1)
 	{
-		if (f_alc_init(&arr, ARR_CAP) == -1)
-			f_pexit("Error: array malloc failed\n");
+		if (fl_alc_init(&arr, ARR_CAP) == -1)
+			fl_pexit("Error: array malloc failed\n");
 		g_char = 1;
 		while (g_char != '\0')
 		{
 			f_receive_char();
-			if (f_alc_add(&arr, g_char) == -1)
+			if (fl_alc_add(&arr, g_char) == -1)
 			{
 				free(arr.head);
-				f_pexit("Error: adding element failed\n");
+				fl_pexit("Error: adding element failed\n");
 			}
 		}
-		f_miniprint("Received: |%s|\n", arr.head);
+		fl_miniprint("Received: |%s|\n", arr.head);
 		free(arr.head);
 	}
 	return (0);

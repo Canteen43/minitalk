@@ -6,7 +6,7 @@
 /*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:44:25 by kweihman          #+#    #+#             */
-/*   Updated: 2024/10/16 11:25:45 by kweihman         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:49:19 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	f_receive_char(void)
 
 	sa.sa_sigaction = advanced_handler;
 	if (sigemptyset(&sa.sa_mask) == -1)
-		f_pexit("sigemptyset failed");
+		fl_pexit("sigemptyset failed");
 	sa.sa_flags = SA_SIGINFO;
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		f_pexit("sigaction 1 failed");
+		fl_pexit("sigaction 1 failed");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		f_pexit("sigaction 2 failed");
+		fl_pexit("sigaction 2 failed");
 	i = 0;
 	while (i < 8)
 	{

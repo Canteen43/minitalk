@@ -22,13 +22,13 @@ void	f_send_char(pid_t pid_target, char c)
 	{
 		if ((unsigned char) c >= 128)
 			if (kill(pid_target, SIGUSR2) == -1)
-				f_pexit("Sending SIGUSR2 failed");
+				fl_pexit("Sending SIGUSR2 failed");
 		if ((unsigned char) c < 128)
 			if (kill(pid_target, SIGUSR1) == -1)
-				f_pexit("Sending SIGUSR1 failed");
+				fl_pexit("Sending SIGUSR1 failed");
 		c *= 2;
 		i++;
 		if (usleep(50) == -1)
-			f_pexit("Usleep failed");
+			fl_pexit("Usleep failed");
 	}
 }
