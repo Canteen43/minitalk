@@ -12,7 +12,7 @@
 
 #include "../inc/minitalk.h"
 
-int	f_strtoi(char *str, int *num);
+int	fl_strtoi(char *str, int *num);
 
 /*Main function for client.*/
 int	main(int argc, char **argv)
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 		fl_pexit("Wrong arguments. Enter \"./client [server_pid] [message]\"");
-	if (f_strtoi(argv[1], &pid_server) == -1)
+	if (fl_strtoi(argv[1], &pid_server) == -1)
 		fl_pexit("Invalid PID");
 	while (*argv[2])
 	{

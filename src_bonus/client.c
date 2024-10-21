@@ -6,13 +6,13 @@
 /*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:03:12 by kweihman          #+#    #+#             */
-/*   Updated: 2024/10/21 15:49:19 by kweihman         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:51:10 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
 
-int			f_strtoi(char *str, int *num);
+int			fl_strtoi(char *str, int *num);
 static void	handler(int signum);
 
 /*Main function for client.*/
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		fl_pexit("sigaction 1 failed");
 	if (argc != 3)
 		fl_pexit("Wrong arguments. Enter \"./client [server_pid] [message]\"");
-	if (f_strtoi(argv[1], &pid_server) == -1)
+	if (fl_strtoi(argv[1], &pid_server) == -1)
 		fl_pexit("Invalid PID");
 	while (*argv[2])
 	{
