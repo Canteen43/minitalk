@@ -18,7 +18,6 @@
 # include <unistd.h>		// getpid, usleep
 # include <stdlib.h>		// malloc, free
 # include <sys/types.h>		// pid_t
-# include <sys/siginfo.h>	// siginfo_t
 
 typedef struct s_arraylist_char
 {

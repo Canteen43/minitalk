@@ -44,7 +44,7 @@ static void	handler(int signum)
 
 	if (signum == SIGUSR1)
 		bit = 0;
-	else if (signum == SIGUSR2)
+	else
 		bit = 1;
 	g_char *= 2;
 	g_char += bit;
