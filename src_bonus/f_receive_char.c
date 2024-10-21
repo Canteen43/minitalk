@@ -6,7 +6,7 @@
 /*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:44:25 by kweihman          #+#    #+#             */
-/*   Updated: 2024/10/21 15:49:19 by kweihman         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:53:41 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	advanced_handler(int signum, siginfo_t *info, void *context)
 
 	if (signum == SIGUSR1)
 		bit = 0;
-	else if (signum == SIGUSR2)
+	else
 		bit = 1;
 	g_char *= 2;
 	g_char += bit;
