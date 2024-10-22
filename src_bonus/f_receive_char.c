@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   f_receive_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kweihman <kweihman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:44:25 by kweihman          #+#    #+#             */
-/*   Updated: 2024/10/21 15:53:41 by kweihman         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:23:43 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
 
-extern char		g_char;
-extern pid_t	g_pid_client;
+extern t_cont	g_cont;
+
+// Prototype, function below
 static void		advanced_handler(int signum, siginfo_t *info, void *context);
 
 /*Receives SIGUSR1 for 0 and SIGUSR2 for 1.*/
@@ -39,6 +40,8 @@ void	f_receive_char(void)
 	return ;
 }
 
+/*Advanced handler for receiving signals that receives the bit as well as info 
+about sender and saves that info to the global var.*/
 static void	advanced_handler(int signum, siginfo_t *info, void *context)
 {
 	char	bit;
@@ -47,8 +50,8 @@ static void	advanced_handler(int signum, siginfo_t *info, void *context)
 		bit = 0;
 	else
 		bit = 1;
-	g_char *= 2;
-	g_char += bit;
-	g_pid_client = info->si_pid;
+	g_cont.bit_char *= 2;
+	g_cont.bit_char += bit;
+	g_cont.pid_client = info->si_pid;
 	context++;
 }
