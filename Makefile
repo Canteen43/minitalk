@@ -18,7 +18,7 @@ CLIENT_BONUS = client_bonus
 # Directories
 SRC_DIR = src_alt/
 OBJ_DIR = obj/
-SRC_BONUS_DIR = src_bonus/
+SRC_BONUS_DIR = src_alt/
 OBJ_BONUS_DIR = obj_bonus/
 LIB_DIR1 = lib/Libft/
 LIB_DIR2 = lib/FLib/
@@ -33,6 +33,7 @@ CLIENT_SRC_FILES += f_send_char.c
 
 SERVER_SRC_FILES += server.c
 SERVER_SRC_FILES += f_receive_char.c
+SERVER_SRC_FILES += f_sigint_setup.c
 
 # Source files for bonus server and client
 CLIENT_BONUS_SRC_FILES += client.c
@@ -40,6 +41,7 @@ CLIENT_BONUS_SRC_FILES += f_send_char.c
 
 SERVER_BONUS_SRC_FILES += server.c
 SERVER_BONUS_SRC_FILES += f_receive_char.c
+SERVER_BONUS_SRC_FILES += f_sigint_setup.c
 
 # Object files for server and client
 CLIENT_OBJ_FILES = $(CLIENT_SRC_FILES:%.c=$(OBJ_DIR)%.o)

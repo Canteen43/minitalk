@@ -6,13 +6,14 @@
 /*   By: kweihman <kweihman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:44:25 by kweihman          #+#    #+#             */
-/*   Updated: 2024/10/23 14:09:12 by kweihman         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:42:26 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
 
-extern char	g_bit_char;
+// Global container variable
+extern t_cont	g_cont;
 
 // Prototype, function below
 static void		advanced_handler(int signum, siginfo_t *info, void *context);
@@ -52,8 +53,8 @@ static void	advanced_handler(int signum, siginfo_t *info, void *context)
 		bit = 0;
 	else
 		bit = 1;
-	g_bit_char *= 2;
-	g_bit_char += bit;
+	g_cont.bit_char *= 2;
+	g_cont.bit_char += bit;
 	if (kill(info->si_pid, SIGUSR1) == -1)
 		fl_pexit("Sending confirmation signal failed.");
 	context++;
