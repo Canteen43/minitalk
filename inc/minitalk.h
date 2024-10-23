@@ -26,14 +26,6 @@ typedef struct s_arraylist_char
 	size_t	len;
 }	t_alc;
 
-typedef struct s_container
-{
-	char	bit_char;
-	pid_t	pid_client;
-	pid_t	pid_server;
-	t_alc	arr;
-}	t_cont;
-
 # ifndef ARR_CAP
 #  define ARR_CAP 1000
 # endif

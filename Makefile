@@ -16,7 +16,7 @@ SERVER_BONUS = server_bonus
 CLIENT_BONUS = client_bonus
 
 # Directories
-SRC_DIR = src/
+SRC_DIR = src_alt/
 OBJ_DIR = obj/
 SRC_BONUS_DIR = src_bonus/
 OBJ_BONUS_DIR = obj_bonus/
